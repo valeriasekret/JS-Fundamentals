@@ -87,3 +87,54 @@ const secInMonth = secInDay * daysInMonth;
 console.log('seconds in hour =', secInHour);
 console.log('seconds in day =', secInDay);
 console.log('seconds in month =', secInMonth);
+
+/* ⭐⭐⭐ Ускладнене. Задача не оцінюється
+Створіть веб-додаток для визначення купе в плацкартному вагоні за номером квитка. 
+Користувач вводить номер місця, вивести йому номер купе(??), тип місця - бічне чи ні, 
+верхнє чи нижнє.
+*/
+
+/* Я не зрозуміла, як це номер купе у плацкарті, тому у мене функція визначає 
+номер вагону (їх у мене два), нижнє/верхнє та основне(main, там де 4) чи бічне */
+
+const ticketNum = prompt("Enter the number of your ticket here", "example: 42");
+
+function findCar(ticketNum) {
+  let trainCar;
+  if (ticketNum >= 1 && ticketNum <= 54) {
+    trainCar = "first";
+  } else if (ticketNum >= 55 && ticketNum <= 108) {
+    trainCar = "second";
+  }
+  return trainCar;
+}
+
+function findPlace(ticketNum) {
+  let placeHight;
+  if (ticketNum % 2 === 0) {
+    placeHight = "upper";
+  } else {
+    placeHight = "lower";
+  }
+  return placeHight;
+}
+
+function findSide(ticketNum) {
+  let placePosition;
+  if (
+    (ticketNum >= 37 && ticketNum <= 54) ||
+    (ticketNum >= 91 && ticketNum <= 108)
+  ) {
+    placePosition = "side";
+  } else {
+    placePosition = "main";
+  }
+  return placePosition;
+}
+
+const trainCar = findCar(ticketNum);
+const placeHight = findPlace(ticketNum);
+const placePosition = findSide(ticketNum);
+
+const messageForPassenger = `Dear passenger, you have ${trainCar} car, ${placeHight} ${placePosition} place. Have a nice safe trip!`;
+alert(messageForPassenger);
