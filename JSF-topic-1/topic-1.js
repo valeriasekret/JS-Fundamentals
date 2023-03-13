@@ -1,6 +1,6 @@
 /* 2. Напишіть скрипт в зовнішньому файлі, який виводить в консоль 
 ваше прізвище. Підключіть створений файл до HTML-документу */
-let lastName = 'Sekret';
+const lastName = 'Sekret';
 console.log(lastName);
 
 /* 3. a) оголосіть дві змінні;
@@ -25,7 +25,7 @@ const myCat = {
   name: 'Arwen',
   age: 7,
   isCute: true,
-  timeAsleep: undefined, //When and what for do we need to assign 'undefined' explicitly?
+  timeAsleep: undefined,
   timeAwake: null,
 }
 
@@ -97,14 +97,14 @@ console.log('seconds in month =', secInMonth);
 /* Я не зрозуміла, як це номер купе у плацкарті, тому у мене функція визначає 
 номер вагону (їх у мене два), нижнє/верхнє та основне(main, там де 4) чи бічне */
 
-const ticketNum = prompt("Enter the number of your ticket here", "example: 42");
+const ticketNum = prompt('Enter the number of your ticket here', 'example: 42');
 
 function findCar(ticketNum) {
   let trainCar;
   if (ticketNum >= 1 && ticketNum <= 54) {
-    trainCar = "first";
+    trainCar = 'first';
   } else if (ticketNum >= 55 && ticketNum <= 108) {
-    trainCar = "second";
+    trainCar = 'second';
   }
   return trainCar;
 }
@@ -112,9 +112,9 @@ function findCar(ticketNum) {
 function findPlace(ticketNum) {
   let placeHight;
   if (ticketNum % 2 === 0) {
-    placeHight = "upper";
+    placeHight = 'upper';
   } else {
-    placeHight = "lower";
+    placeHight = 'lower';
   }
   return placeHight;
 }
@@ -125,9 +125,9 @@ function findSide(ticketNum) {
     (ticketNum >= 37 && ticketNum <= 54) ||
     (ticketNum >= 91 && ticketNum <= 108)
   ) {
-    placePosition = "side";
+    placePosition = 'side';
   } else {
-    placePosition = "main";
+    placePosition = 'main';
   }
   return placePosition;
 }
