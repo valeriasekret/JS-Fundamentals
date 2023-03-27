@@ -48,12 +48,13 @@ input {
   height: 200px;
   border-radius: 50%;
   text-align: center;
-  transition-duration: .7s;
+  transition-duration: 0.7s;
 }
 
 .circle:hover {
   border: 0 solid blue;
-  box-shadow: 5px 5px 5px 0px blue, inset 4px 4px 15px 0px blue, 0px 0px 23px 18px rgba(0, 0, 0, 0);
+  box-shadow: 5px 5px 5px 0px blue, inset 4px 4px 15px 0px blue,
+    0px 0px 23px 18px rgba(0, 0, 0, 0);
 }
 
 .rotate:hover {

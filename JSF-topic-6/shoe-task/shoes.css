@@ -262,6 +262,18 @@ body{
     transform: scale(1.1);
 }
 
+.size.active{
+    color: #d3eef9;
+    box-shadow: 0 0 10px .5px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
+}
+
+.options{
+    display: flex;
+    padding: 10px 10px;
+    gap: 20px;
+}
+
 .size-container{
     padding: 10px 0;
     margin-bottom: 10px;
