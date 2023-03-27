@@ -137,18 +137,15 @@ class Marker {
   constructor(color, ink) {
     this.color = color;
     this.ink = ink;
+    this._inkPerSymbol = 0.5;
   }
 
   print(text) {
     let printedText = "";
     for (let i = 0; i < text.length; i++) {
-      const char = text[i];
-      if (this.ink <= 0) {
-        break;
-      }
-      printedText += char;
-      if (char !== " ") {
-        this.ink -= 0.5;
+      if (text[i] !== " " && this.ink >= this._inkPerSymbol){
+        printedText += text[i];
+        this.ink -= this._inkPerSymbol;
       }
     }
     console.log("%c" + printedText, `color: ${this.color}`);
@@ -156,8 +153,8 @@ class Marker {
 }
 
 class RefillableMarker extends Marker {
-  constructor(color, ink, capacity) {
-    super(color, ink);
+  constructor(color, ink, _inkPerSymbol, capacity) {
+    super(color, ink, _inkPerSymbol);
     this.capacity = capacity;
   }
 
@@ -167,6 +164,13 @@ class RefillableMarker extends Marker {
     }
   }
 }
+
+const marker = new Marker("blue", 50);
+marker.print("Hello World!");
+
+const refillableMarker = new RefillableMarker("red", 25, 0.5, 100);
+refillableMarker.refill(50); 
+refillableMarker.print("This is a refillable marker"); 
 
 /*5.
 Створіть клас Worker який буде мати конструктор, який приймає наступні властивості: fullName 
