@@ -21,7 +21,7 @@ class Circle {
   }
 
   getCircumference() {
-    return 2 * Math.PI * this.radius;
+    return Circle.getCircumferenceByRadius(this.radius);
   }
 
   static getCircumferenceByRadius(radius) {
@@ -106,7 +106,7 @@ class Student extends Person {
     this.year = year;
   }
 
-  showFullName(middleName) {
+  showWholeName(middleName) {
     return `${this.surname} ${this.name} ${middleName}`;
   }
 
@@ -120,7 +120,7 @@ class Student extends Person {
 }
 
 const stud1 = new Student("Petro", "Petrenko", 2019);
-console.log(stud1.showFullName("Petrovych")); // Petrenko Petro Petrovych
+console.log(stud1.showWholeName("Petrovych")); // Petrenko Petro Petrovych
 console.log("Current course: " + stud1.showCourse()); //Current course: 4
 
 /*4. 
@@ -143,7 +143,7 @@ class Marker {
   print(text) {
     let printedText = "";
     for (let i = 0; i < text.length; i++) {
-      if (text[i] !== " " && this.ink >= this._inkPerSymbol){
+      if (text[i] !== " " && this.ink >= this._inkPerSymbol) {
         printedText += text[i];
         this.ink -= this._inkPerSymbol;
       }
@@ -169,8 +169,8 @@ const marker = new Marker("blue", 50);
 marker.print("Hello World!");
 
 const refillableMarker = new RefillableMarker("red", 25, 0.5, 100);
-refillableMarker.refill(50); 
-refillableMarker.print("This is a refillable marker"); 
+refillableMarker.refill(50);
+refillableMarker.print("This is a refillable marker");
 
 /*5.
 Створіть клас Worker який буде мати конструктор, який приймає наступні властивості: fullName 
@@ -267,6 +267,14 @@ let workers = [
   new Worker("Andy Ander", 29, 23),
 ];
 
+for (let i = 0; i < workers.length; i++) {
+  workers[i].setExp = workers[i].showExp + 0.5;
+  console.log(`${workers[i].fullName} new experience is ${workers[i].showExp}`);
+  console.log(
+    `${workers[i].fullName} new salary with experience ${workers[i].showExp} is ${workers[i].showSalaryWithExperience()}`
+  );
+}
+
 workers.sort((a, b) => {
   if (a.showExp === b.showExp) {
     return a.showSalary() - b.showSalary();
@@ -274,8 +282,22 @@ workers.sort((a, b) => {
   return a.showExp - b.showExp;
 });
 
+function dynamicSort(property) {
+  let sortOrder = 1;
+  if (property[0] === "-") {
+    sortOrder = -1;
+    property = property.substr(1);
+  }
+  return function (a, b) {
+    let result = a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0;
+    return result * sortOrder;
+  };
+}
+
+let dynamicSortProperty = "fullName";
+workers.sort(dynamicSort(dynamicSortProperty));
+
+console.log("Sorted workers:");
 for (let i = 0; i < workers.length; i++) {
-  console.log(
-    `${workers[i].fullName}: ${workers[i].showSalaryWithExperience()}`
-  );
+  console.log(`${workers[i].fullName}: ${workers[i].showSalaryWithExperience()}`);
 }
