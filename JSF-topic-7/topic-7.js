@@ -4,7 +4,7 @@
         3) із затримкою 2 сек перемістіть вікно в точку з координатами (200, 200)
         4) із затримкою 2 сек закрийте вікно. */
 
-const myWindow = window.open('', '', 'width=300,height=300');
+const myWindow = window.open("", "", "width=300,height=300");
 
 setTimeout(() => {
     myWindow.resizeTo(500, 500);
@@ -23,14 +23,14 @@ setTimeout(() => {
 шрифт сімейства "Comic Sans MS" */
 
 function changeCSS() {
-    const textElement = document.getElementById('text');
-    textElement.style.color = 'orange';
-    textElement.style.fontSize = '20px';
-    textElement.style.fontFamily = 'Comic Sans MS';
+    const textElement = document.getElementById("text");
+    textElement.style.color = "orange";
+    textElement.style.fontSize = "20px";
+    textElement.style.fontFamily = "Comic Sans MS";
 }
 
-const button = document.querySelector('button');
-button.addEventListener('click', changeCSS);
+const button = document.querySelector("button");
+button.addEventListener("click", changeCSS);
 
 /*7-3. Задано сторінку з 3 кнопками і 1 лінкою. Напишіть Javascript код і реалізуйте HTML-сторінку
  з відповідними подіями на кожному елементові:
@@ -42,34 +42,34 @@ button.addEventListener('click', changeCSS);
         Приклад – курсор наведений на лінку.
 https://user-images.githubusercontent.com/9075641/228461056-455d4dbf-527b-43de-a3dd-7c079dfbffed.png
  */
-const button1 = document.getElementById('button1');
-const button2 = document.getElementById('button2');
-const button3 = document.getElementById('button3');
-const link = document.getElementById('link');
-const body = document.querySelector('body');
+const button1 = document.getElementById("button1");
+const button2 = document.getElementById("button2");
+const button3 = document.getElementById("button3");
+const link = document.getElementById("link");
+const body = document.querySelector("body");
 
-button1.addEventListener('click', function () {
-    body.style.backgroundColor = 'rgb(49, 133, 197)';
+button1.addEventListener("click", function () {
+    body.style.backgroundColor = "rgb(49, 133, 197)";
 });
 
-button2.addEventListener('dblclick', function () {
-    body.style.backgroundColor = 'rgb(238, 147, 179)';
+button2.addEventListener("dblclick", function () {
+    body.style.backgroundColor = "rgb(238, 147, 179)";
 });
 
-button3.addEventListener('mousedown', function () {
-    body.style.backgroundColor = 'rgba(111, 60, 27, 0.754)';
+button3.addEventListener("mousedown", function () {
+    body.style.backgroundColor = "rgba(111, 60, 27, 0.754)";
 });
 
-button3.addEventListener('mouseup', function () {
-    body.style.backgroundColor = 'white';
+button3.addEventListener("mouseup", function () {
+    body.style.backgroundColor = "white";
 });
 
-link.addEventListener('mouseenter', function () {
-    body.style.backgroundColor = 'rgb(255, 239, 149)';
+link.addEventListener("mouseenter", function () {
+    body.style.backgroundColor = "rgb(255, 239, 149)";
 });
 
-link.addEventListener('mouseleave', function () {
-    body.style.backgroundColor = 'white';
+link.addEventListener("mouseleave", function () {
+    body.style.backgroundColor = "white";
 });
 
 /*7-4. Реалізуйте програму, яка по натисканню на кнопку видалятиме обраний елемент 
@@ -133,7 +133,7 @@ window.addEventListener("resize", updateWindowSize);
 /* 7-7. На сторінці потрібно реалізувати 2 випадаючих списки. 
 У першому містяться назви країн, у другому – назви міст. 
 Реалізувати роботу таким чином, щоб коли вибирається з лівого випадаючого списку певна країна - 
-в правому випадаючому списку з'являлися міста цієї країни. Список міст формується динамічно, 
+в правому випадаючому списку з"являлися міста цієї країни. Список міст формується динамічно, 
 через JavaScript. Також потрібно нижче вивести назву обраної країни і місто.
 https://user-images.githubusercontent.com/9075641/228463508-6225f4ee-7ad2-4130-b7fc-d97a2d236693.png*/
 
