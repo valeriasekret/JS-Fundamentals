@@ -89,6 +89,17 @@ document.getElementById("deleteButton").addEventListener("click", function () {
     }
 });
 
+/*const options = document.querySelectorAll('option')
+
+document.querySelector('.delete').addEventListener('click',()=>{
+  let value = document.querySelector('#mylist').value;
+  options.forEach(el=>{
+    if(el.value === value){
+      el.remove();
+    }
+  })
+})*/
+
 /* 7-5. Реалізуйте програму, яка по натисканню на кнопку виводитиме повідомлення 
 "I was pressed!", при наведенні на кнопку виводитиме повідомлення "Mouse on me!", 
 а при відведенні курсора миші виводитиме повідомлення "Mouse is not on me!".
