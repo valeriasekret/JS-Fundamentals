@@ -21,7 +21,10 @@ let data = {
     ages: [20, 24, 22, 26],
 };
 
-let { names: [, name2, , name4], ages: [, age2, , age4] } = data;
+let { 
+    names: [, name2, , name4], 
+    ages: [, age2, , age4] 
+} = data;
 
 console.log(name2); // "Tom"
 console.log(age2); // 24
@@ -35,14 +38,14 @@ console.log(age4); // 26
 
 function mul(...args) {
     let result = 1;
-    let hasNumber = false; // флаг, що вказує, чи є хоча б один аргумент числом
+    let hasNumber = false;
     for (let arg of args) {
         if (typeof arg === 'number') {
             result *= arg;
-            hasNumber = true; // встановлюємо флаг, якщо знайдено число
+            hasNumber = true;
         }
     }
-    return hasNumber ? result : 0; // повертаємо 0, якщо немає чисел, інакше - результат
+    return hasNumber ? result : 0;
 }
 
 console.log(mul(1, "str", 2, 3, true)); // 6
@@ -92,7 +95,6 @@ const mapBuilder = (keysArray, valuesArray) => {
     return map;
 };
 
-// Приклад використання
 let keys = [1, 2, 3, 4];
 let values = ["div", "span", "b", "i"];
 let map = mapBuilder(keys, values);
