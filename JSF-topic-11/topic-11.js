@@ -9,15 +9,15 @@ getPromise("test promise", 2000).then(function(data) {
 Результат: через 2 сек в консолі виводиться "test promise" */
 
 function getPromise(message, delay) {
-    return new Promise(function (resolve) {
-        setTimeout(function () {
-            resolve(message);
-        }, delay);
-    });
+  return new Promise(function (resolve) {
+    setTimeout(function () {
+      resolve(message);
+    }, delay);
+  });
 }
 
 getPromise("test promise", 2000).then(function (data) {
-    console.log(data);
+  console.log(data);
 });
 
 
@@ -33,19 +33,20 @@ calcArrProduct([5,"user2", 7, 12]).then(result => console.log(result));
 */
 
 function calcArrProduct(arr) {
-    return new Promise(function (resolve, reject) {
-        let product = 1;
-        for (let i = 0; i < arr.length; i++) {
-            if (typeof arr[i] === 'number') {
-                product *= arr[i];
-            } else {
-                reject('Error! Incorrect array!');
-                return;
-            }
-        }
-        resolve(product);
-    });
+  return new Promise(function (resolve, reject) {
+    let product = 1;
+    for (let i = 0; i < arr.length; i++) {
+      if (typeof arr[i] === 'number') {
+        product *= arr[i];
+      } else {
+        reject('Error! Incorrect array!');
+        return;
+      }
+    }
+    resolve(product);
+  });
 }
+
 
 // calcArrProduct([3,4,5]).then(result => console.log(result)); // 60
 // calcArrProduct([5,"user2", 7, 12]).then(result => console.log(result));
@@ -66,27 +67,27 @@ new Promise(function (resolve, reject) {
    // Вивід number у консоль
 });*/
 
-function getUserNumber() {
-    return new Promise(function(resolve, reject) {
-      let number = prompt("Please enter a number:");
-      if (isNaN(number)) {
-        reject(new Error("Input is not a number"));
-      } else {
-        resolve(Number(number));
+new Promise(function (resolve, reject) {
+    let number = prompt("Enter a number:");
+    if (isNaN(number) || number === null || number === "" || number === " ") {
+      reject("Введіть число");
+      console.log(error);
+    } else {
+        resolve(number);
       }
-    });
-  }
-  
-  getUserNumber()
-    .catch(function(error) {
-      console.error(error);
-      return getUserNumber();
-    })
-    .then(function(result) {
-      console.log("Number entered:", result);
-    });
+  }).catch(function (error) {
+     return new Promise(function (resolve, reject) {
+       let number;
+       while(isNaN(number) || number === null || number === "") {
+         number = prompt("Enter valid number:");
+       }
+       resolve(number);
+     });
+  }).then(function (result) {
+    console.log(result);
+  });
 
-    
+
 /* 11-4.
 Заданий цикл for, який виводить послідовність чисел від 0 до 10 з випадковим інтервалом 
 (від 0 до N мілісекунд). Використовуючи проміси потрібно змінити цикл так, щоб числа виводилися 

@@ -36,10 +36,9 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(5000, () => {
-    console.log('Server is running on http://localhost:5000');
+    console.log('Server is running on http://127.0.01:5000/ ...');
 });
 
-//http://localhost:5000
 
 /*12-2. Необхідно створити власний модуль personalmodule.js, який містить функцію, що приймає 
 ім’я системного юзера і працює з поточним часом та на основі пори доби виводить повідомлення 
