@@ -110,12 +110,22 @@ console.log(map.get(2)); // "span"
 Використовуючи механізм замикання, внесіть у код зміни, щоб у консоль вивелися число 0 
 та число 2(відповідно до виклику). */
 
+//const arr = [];
+//for (let i = 0; i <= 2; i++) {
+//   arr[i] = () => {
+//      console.log(i);
+//   };
+//}
+
+//arr[0](); // 0
+//arr[arr.length - 1](); // 2
+
 const arr = [];
 
 for (let i = 0; i <= 2; i++) {
-   arr[i] = () => {
-      console.log(i);
-   };
+  arr[i] = ((num) => () => {
+    console.log(num);
+  })(i);
 }
 
 arr[0](); // 0
